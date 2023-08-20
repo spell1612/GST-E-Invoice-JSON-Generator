@@ -1,2 +1,2 @@
-call %~dp0nodejs/node %~dp0scripts/index.js
+call %~dp0bin/nodejs/node %~dp0scripts/index.js
 pause

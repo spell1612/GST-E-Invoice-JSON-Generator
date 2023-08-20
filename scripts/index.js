@@ -1,8 +1,12 @@
 import "./config/dotenv.js"
-import loadAndParseFiles from "./file-parser.js"
+import loadAndParseFiles from "./xlsm-generator/file-reader.js"
 
-const run = () => {
-    loadAndParseFiles();
+const run = async () => {
+    try {
+        await loadAndParseFiles()
+    } catch (error) {
+        console.error('Generator Error', err);
+    }
 }
 
-run();
+await run();
