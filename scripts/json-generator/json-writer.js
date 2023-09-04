@@ -50,9 +50,9 @@ export default async (billDetails) => {
                 })
             }
         })
-        console.log('writing to ', writeFilePath);
+        console.log('\n\nwriting to ', writeFilePath);
         await fs.promises.writeFile(writeFilePath, JSON.stringify(jsonContent, null, 4));
-        console.log(`SUCCESSFULLY WRITTEN`);
+        console.log(`\n\nSUCCESSFULLY WRITTEN`);
     } catch (error) {
         console.error('JSON writer error', error);
     }
