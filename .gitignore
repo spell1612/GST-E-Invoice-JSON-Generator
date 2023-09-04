@@ -2,3 +2,4 @@
 .env
 nodejs/*
 scripts/assets/*
+bin/nodejs/*
