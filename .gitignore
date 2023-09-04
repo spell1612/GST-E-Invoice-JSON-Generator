@@ -2,4 +2,4 @@
 .env
 nodejs/*
 scripts/assets/*
-bin/nodejs/*
+bin/nodejs/node.exe
