@@ -15,7 +15,6 @@ export default async () => {
         const sortedBillDetails = billDetails.sort((billA, billB) => {
             return billA.invoiceNo.split('/').slice().pop() - billB.invoiceNo.split('/').slice().pop();
         })
-        console.log('parsed bill details:', JSON.stringify(sortedBillDetails, null, 2));
         await writeToJSON(sortedBillDetails);
     } catch (err) {
         console.error('Error in file reader:', err);

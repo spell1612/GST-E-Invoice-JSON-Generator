@@ -11,7 +11,6 @@ import {
     cgstPattern,
     sgstPattern,
     totalAmountPattern,
-    itemListPattern,
 } from '../bill-specifics/bill-regex.js';
 
 
