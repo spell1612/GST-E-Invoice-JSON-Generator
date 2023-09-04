@@ -1,5 +1,5 @@
 import "./config/dotenv.js"
-import loadAndParseFiles from "./xlsm-generator/file-reader.js"
+import loadAndParseFiles from "./json-generator/file-reader.js"
 
 const run = async () => {
     try {

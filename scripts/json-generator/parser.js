@@ -11,12 +11,52 @@ import {
     cgstPattern,
     sgstPattern,
     totalAmountPattern,
+    itemListPattern,
 } from '../bill-specifics/bill-regex.js';
 
 
 const matchPattern = (string, pattern) => {
     const match = string.match(pattern);
     return match ? match[1].trim() : "Not found";
+}
+
+const getItemList = (bill) => {
+    const lines = bill.split('\n');
+    const crSheetRows = [];
+    for (const line of lines) {
+        if (line.includes("C.R.SHEET")) {
+            const [
+                ,
+                slNo,
+                item,
+                hsnCode,
+                gstRate,
+                unitPrice,
+                qty,
+                grossValue,
+                taxableValue,
+                cgstAmount,
+                sgstAmount,
+                totalAmount,
+            ] = line.split(/\s+/);
+            crSheetRows.push(
+                {
+                    slNo,
+                    item,
+                    hsnCode,
+                    gstRate,
+                    unitPrice,
+                    qty,
+                    grossValue,
+                    taxableValue,
+                    cgstAmount,
+                    sgstAmount,
+                    totalAmount,
+                }
+            );
+        }
+    }
+    return crSheetRows
 }
 
 
@@ -45,7 +85,8 @@ export default (billData) => {
             cgst,
             sgst,
             totalAmount,
-            roundOff: roundOff.toFixed(2)
+            roundOff: roundOff.toFixed(2),
+            itemList: getItemList(bill),
         }
     })
 }
