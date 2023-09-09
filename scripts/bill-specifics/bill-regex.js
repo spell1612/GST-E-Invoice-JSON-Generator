@@ -10,3 +10,4 @@ export const totalTaxablePattern = /Total\s+[^\s]+\s+[^\s]+\s+([\d.]+)/;
 export const cgstPattern = /Total\s+[^\s]+\s+[^\s]+\s+[^\s]+\s+[^\s]+\s+([\d.]+)/;
 export const sgstPattern = /Total\s+[^\s]+\s+[^\s]+\s+[^\s]+\s+[^\s]+\s+([\d.]+)\s+([\d.]+)/;
 export const totalAmountPattern = /Total\s+[^\n]+\s+(\d+\.\d{2})\s*$/m;
+export const billItemSpacer = /\s+/;

@@ -11,7 +11,9 @@ import {
     cgstPattern,
     sgstPattern,
     totalAmountPattern,
+    billItemSpacer,
 } from '../bill-specifics/bill-regex.js';
+import { billItemNames, itemJsonFieldNames } from '../bill-specifics/bill-constants.js';
 
 
 const matchPattern = (string, pattern) => {
@@ -21,41 +23,33 @@ const matchPattern = (string, pattern) => {
 
 const getItemList = (bill) => {
     const lines = bill.split('\n');
-    const crSheetRows = [];
+    const itemRows = [];
+    let slNo = 0;
     for (const line of lines) {
-        if (line.includes("C.R.SHEET")) {
-            const [
-                ,
-                slNo,
-                item,
-                hsnCode,
-                gstRate,
-                unitPrice,
-                qty,
-                grossValue,
-                taxableValue,
-                cgstAmount,
-                sgstAmount,
-                totalAmount,
-            ] = line.split(/\s+/);
-            crSheetRows.push(
-                {
-                    slNo,
-                    item,
-                    hsnCode,
-                    gstRate,
-                    unitPrice,
-                    qty,
-                    grossValue,
-                    taxableValue,
-                    cgstAmount,
-                    sgstAmount,
-                    totalAmount,
-                }
-            );
+        let item, itemDetailsLine;
+        const isBillItem = billItemNames.some((billItem) => {
+            if (line.includes(billItem)) {
+                item = billItem;
+                const startIndex = line.indexOf(item);
+                itemDetailsLine = line.substring(startIndex + item.length + 1).trim();
+                slNo++;
+                return true;
+            }
+            return false
+        })
+
+        if (isBillItem) {
+            const itemDetails = itemDetailsLine.split(billItemSpacer);
+            // Map and insert the details of each item as an object, 
+            // with keys corresponding to the GST JSON schema
+            const itemObj = itemDetails.slice(1).reduce((prevObject, detailItem, index) => {
+                prevObject[itemJsonFieldNames[index]] = detailItem;
+                return prevObject;
+            }, { item, slNo });
+            itemRows.push(itemObj);
         }
     }
-    return crSheetRows
+    return itemRows
 }
 
 
