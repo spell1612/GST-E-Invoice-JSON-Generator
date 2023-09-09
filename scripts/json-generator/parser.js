@@ -42,7 +42,7 @@ const getItemList = (bill) => {
             const itemDetails = itemDetailsLine.split(billItemSpacer);
             // Map and insert the details of each item as an object, 
             // with keys corresponding to the GST JSON schema
-            const itemObj = itemDetails.slice(1).reduce((prevObject, detailItem, index) => {
+            const itemObj = itemDetails.reduce((prevObject, detailItem, index) => {
                 prevObject[itemJsonFieldNames[index]] = detailItem;
                 return prevObject;
             }, { slNo, item });
