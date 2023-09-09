@@ -45,7 +45,7 @@ const getItemList = (bill) => {
             const itemObj = itemDetails.slice(1).reduce((prevObject, detailItem, index) => {
                 prevObject[itemJsonFieldNames[index]] = detailItem;
                 return prevObject;
-            }, { item, slNo });
+            }, { slNo, item });
             itemRows.push(itemObj);
         }
     }
