@@ -2,6 +2,10 @@
 
 This is a script written in NodeJs to generate the JSON required for GST E-Invoice download.
 
+It uses extremely specific regexes to extract the required information from an unformatted bill.
+
+Update the regexes at `scripts\bill-specifics\bill-regex.js` for your own use.
+
 #### Run
 Use `Generate JSON.bat` to run
 
