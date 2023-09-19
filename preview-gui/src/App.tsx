@@ -1,21 +1,20 @@
 import { Fragment, useEffect, useState } from "react";
 import "./App.css";
 
-// import os from 'os';
-
-// export const desktopPath = path.join(os.homedir(), 'Desktop');
-
 function App() {
-  // const [billData, setBillData] = useState("");
+  const [billData, setBillData] = useState("");
 
-  // const readJSON = ()=>{
+  const readJSON = async () => {
+    const jsonData = (await fetch("BillData.json")).json();
+    setBillData(await jsonData);
+  };
 
-  // }
-
-  useEffect(() => {}, []);
+  useEffect(() => {
+    readJSON();
+  }, []);
   return (
     <Fragment>
-      <div>hnfedfiouhgiloudfhnobiudfh</div>
+      <div>{JSON.stringify(billData)}</div>
     </Fragment>
   );
 }
