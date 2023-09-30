@@ -1,8 +1,9 @@
 import { Fragment, useEffect, useState } from "react";
-import "./App.css";
+import { Invoice } from "./types/Type";
+import Bill from "./components/Bill";
 
-function App() {
-  const [billData, setBillData] = useState("");
+const App = () => {
+  const [billData, setBillData] = useState([]);
 
   const readJSON = async () => {
     const jsonData = (await fetch("BillData.json")).json();
@@ -12,11 +13,16 @@ function App() {
   useEffect(() => {
     readJSON();
   }, []);
+
   return (
     <Fragment>
-      <div>{JSON.stringify(billData)}</div>
+      <div className="d-flex flex-col flex-wrap p-2">
+        {billData.map((bill: Invoice, index) => (
+          <Bill key={index} bill={bill} />
+        ))}
+      </div>
     </Fragment>
   );
-}
+};
 
 export default App;
