@@ -44,7 +44,7 @@ export interface DocDetails {
 export interface BillProps {
   bill: Invoice;
   index: number;
-  showEditForm?: () => void;
+  closeEditForm?: () => void;
   saveBillData: (arg0: number, arg1: Invoice) => void;
 }
 

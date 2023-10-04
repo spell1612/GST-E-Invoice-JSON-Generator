@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BillProps, Invoice, Item } from "../types/Type";
 import EditItemRow from "./EditProductRow";
 
-const EditForm = ({ saveBillData, index, showEditForm, bill }: BillProps) => {
+const EditForm = ({ saveBillData, index, closeEditForm, bill }: BillProps) => {
   const [billData, setBillData] = useState(bill);
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
@@ -18,27 +18,32 @@ const EditForm = ({ saveBillData, index, showEditForm, bill }: BillProps) => {
   const handleProduct = (name: string, value: string | number, index: number) => {
     setBillData((billInfo: Invoice) => ({
       ...billInfo,
-      ItemList: billInfo.ItemList.map((item, i) =>
-        i === index ? { ...item, [name]: value } : item
-      ),
+      ItemList: [
+        ...billInfo.ItemList.slice(0, index),
+        { ...billInfo.ItemList[index], [name]: value },
+        ...billInfo.ItemList.slice(index + 1),
+      ],
     }));
   };
 
   const saveButtonClick = () => {
     saveBillData(index, billData);
+    if (closeEditForm) {
+      closeEditForm();
+    }
   };
-
-  // useEffect(() => {
-  //   console.log("pb", billData);
-  // }, [billData]);
 
   return (
     <div className="overlay">
       <div className="popup">
-        <form>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
           <div className="p-3">
             <div className=" d-flex justify-content-end ">
-              <span className="close material-symbols-outlined" onClick={showEditForm}>
+              <span className="close material-symbols-outlined" onClick={closeEditForm}>
                 close
               </span>
             </div>

@@ -103,7 +103,14 @@ const Bill = ({ saveBillData, index, bill }: BillProps) => {
         </div>
       </div>
 
-      {showEditForm ? <EditForm saveBillData={saveBillData} index={index} showEditForm={onEditFormClose} bill={bill} /> : null}
+      {showEditForm ? (
+        <EditForm
+          saveBillData={saveBillData}
+          index={index}
+          closeEditForm={onEditFormClose}
+          bill={bill}
+        />
+      ) : null}
     </Fragment>
   );
 };

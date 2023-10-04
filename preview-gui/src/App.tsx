@@ -7,12 +7,16 @@ const App = () => {
   const [billData, setBillData] = useState<Invoice[]>([]);
 
   const readJSON = async () => {
-    const jsonData = (await fetch(process.env.REACT_APP_FILE_NAME as string)).json();
+    const jsonData = (await fetch(import.meta.env.VITE_FILE_NAME as string)).json();
     setBillData(await jsonData);
   };
 
   const saveBillData = (index: number, bill: Invoice) => {
-    setBillData((prevBillData) => prevBillData.map((item, i) => (i === index ? bill : item)));
+    setBillData((prevBillData) => {
+      const updatedBillData = [...prevBillData];
+      updatedBillData[index] = bill;
+      return updatedBillData;
+    });
   };
 
   const exportData = () => {
