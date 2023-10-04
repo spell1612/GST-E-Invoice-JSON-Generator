@@ -7,7 +7,8 @@ It uses extremely specific regexes to extract the required information from an u
 Update the regexes at `scripts\bill-specifics\bill-regex.js` for your own use.
 
 #### Run
-Use `Generate JSON.bat` to run
+
+Grab the latest release and use `Generate JSON.bat` to run
 
 #### Prerquisites
 - Provide the bills to be used for generation by copying them over to `Bills.txt` on the desktop.
