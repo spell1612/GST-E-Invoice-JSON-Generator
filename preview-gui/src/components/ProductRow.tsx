@@ -1,6 +1,6 @@
-import { ItemProps } from "../types/Type";
+import { ItemRowProps } from "../types/Type";
 
-const ItemRow = ({ item }: ItemProps) => {
+const ItemRow = ({ item }: ItemRowProps) => {
   return (
     <tr>
       <th className="px-3" scope="row">

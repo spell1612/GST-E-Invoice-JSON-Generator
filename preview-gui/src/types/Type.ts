@@ -43,12 +43,27 @@ export interface DocDetails {
 
 export interface BillProps {
   bill: Invoice;
+  index: number;
+  showEditForm?: () => void;
+  saveBillData: (arg0: number, arg1: Invoice) => void;
 }
 
 export interface ItemProps {
+  key: number;
+  index: number;
+  item: Item;
+  handleProduct: (arg0: string, arg1: string | number, arg2: number) => void;
+}
+
+export interface ItemRowProps {
+  key: number;
   item: Item;
 }
 
 export interface EditFormProps {
   showEditForm: boolean;
+}
+
+export interface ToolbarProps {
+  exportData: () => void;
 }

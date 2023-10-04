@@ -3,22 +3,26 @@ import { BillProps, Item } from "../types/Type";
 import ItemRow from "./ProductRow";
 import EditForm from "./EditForm";
 
-const Bill = ({ bill }: BillProps) => {
+const Bill = ({ saveBillData, index, bill }: BillProps) => {
   const [showEditForm, setShowEditForm] = useState(false);
 
   const handleClick = () => {
     !showEditForm ? setShowEditForm(true) : setShowEditForm(false);
   };
 
+  const onEditFormClose = () => {
+    setShowEditForm(false);
+  };
+
   return (
     <Fragment>
       <div className="bill m-2">
         <div className="Doc-Details col mx-3 mt-3 d-flex">
-          <div className="col-6 py-2 d-flex">
+          <div className="col-7 py-2 d-flex">
             <div className="px-4 col-4">Invoice No</div>
             <div className="px-1 col-8">: {bill.DocDtls.No}</div>
           </div>
-          <div className="col-5 py-2 d-flex">
+          <div className="col-4 py-2 d-flex">
             <div className="px-3 col-3 d-flex justify-content-end">Date</div>
             <div className="px-4 col-9">: {bill.DocDtls.Dt}</div>
           </div>
@@ -51,11 +55,11 @@ const Bill = ({ bill }: BillProps) => {
           </div>
           <div className="col-5">
             <div className="row d-flex my-2">
-              <div className="col-2 px-4">Phone</div>
+              <div className="col-3 px-4">Phone</div>
               <div className="col px-2">: {bill.BuyerDtls.Ph}</div>
             </div>
             <div className="row d-flex my-2">
-              <div className="col-2 px-4">GSTIN</div>
+              <div className="col-3 px-4">GSTIN</div>
               <div className="col px-2">: {bill.BuyerDtls.Gstin}</div>
             </div>
           </div>
@@ -78,8 +82,8 @@ const Bill = ({ bill }: BillProps) => {
               </tr>
             </thead>
             <tbody>
-              {bill.ItemList.map((item: Item) => (
-                <ItemRow key={item.SlNo} item={item} />
+              {bill.ItemList.map((item: Item, index) => (
+                <ItemRow key={index} item={item} />
               ))}
               <tr className="Total-Row">
                 <th scope="row"></th>
@@ -99,7 +103,7 @@ const Bill = ({ bill }: BillProps) => {
         </div>
       </div>
 
-      {showEditForm ? <EditForm bill={bill} /> : null}
+      {showEditForm ? <EditForm saveBillData={saveBillData} index={index} showEditForm={onEditFormClose} bill={bill} /> : null}
     </Fragment>
   );
 };
