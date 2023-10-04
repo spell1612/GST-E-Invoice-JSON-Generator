@@ -6,6 +6,13 @@ It uses extremely specific regexes to extract the required information from an u
 
 Update the regexes at `scripts\bill-specifics\bill-regex.js` for your own use.
 
+
+#### Prerquisites
+- Currently only supports Windows 
+- Provide the bills to be used for generation by copying them over to `Bills.txt` on the desktop.
+- Provide a `node.exe` binary in the `bin\nodejs\` location.
+- Provide a sample E-Invoice JSON file as a template at `scripts\assets`
+
 #### Build
 
 - Clone the repository
@@ -21,10 +28,5 @@ Update the regexes at `scripts\bill-specifics\bill-regex.js` for your own use.
 - Grab the latest release
 - Provide the bills to be parsed, as a `.txt` file with whatever file name was specified in the `.env` file.
 - Use `Generate JSON.bat` to run
-
-#### Prerquisites
-- Provide the bills to be used for generation by copying them over to `Bills.txt` on the desktop.
-- Provide a `node.exe` binary in the `bin\nodejs\` location.
-- Provide a sample E-Invoice JSON file as a template at `scripts\assets`
 
 
