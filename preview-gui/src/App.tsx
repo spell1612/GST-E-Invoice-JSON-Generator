@@ -7,7 +7,7 @@ const App = () => {
   const [billData, setBillData] = useState<Invoice[]>([]);
 
   const readJSON = async () => {
-    const jsonData = (await fetch("BillData.json")).json();
+    const jsonData = (await fetch(process.env.REACT_APP_FILE_NAME as string)).json();
     setBillData(await jsonData);
   };
 
