@@ -31,7 +31,7 @@ export default async (billDetails) => {
         ItemList: bill.itemList.map((billItem) => {
           return {
             ...ItemList[0],
-            SlNo: billItem.slNo,
+            SlNo: billItem.slNo + "",
             PrdDesc: billItem.item,
             HsnCd: billItem.hsnCode,
             Qty: parseFloat(billItem.qty),
