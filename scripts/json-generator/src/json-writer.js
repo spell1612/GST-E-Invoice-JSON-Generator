@@ -1,6 +1,6 @@
-import { desktopPath } from "../bill-specifics/constants.js";
 import fs from "fs";
-import jsonTemplate from "../assets/E-INVOICE_V2.json" assert { type: "json" };
+import { jsonPath } from "../../bill-specifics/constants.js";
+import jsonTemplate from "../../assets/E-INVOICE_V2.json" assert { type: "json" };
 
 const writeFilePath = jsonPath + "\\" + process.env.JSON_FORM_B_FILE;
 

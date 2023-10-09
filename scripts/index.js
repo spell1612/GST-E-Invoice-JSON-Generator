@@ -1,9 +1,11 @@
 import "./config/dotenv.js"
-import loadAndParseFiles from "./json-generator/file-reader.js"
+import loadAndParseFiles from "./json-generator/index.js"
+import runGui from './run-gui.js';
 
 const run = async () => {
     try {
-        await loadAndParseFiles()
+        await loadAndParseFiles();
+        runGui();
     } catch (error) {
         console.error('Generator Error', err);
     }
