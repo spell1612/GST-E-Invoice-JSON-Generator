@@ -12,8 +12,8 @@ import {
     sgstPattern,
     totalAmountPattern,
     billItemSpacer,
-} from '../bill-specifics/bill-regex.js';
-import { billItemNames, itemJsonFieldNames } from '../bill-specifics/bill-constants.js';
+} from '../../bill-specifics/bill-regex.js';
+import { billItemNames, itemJsonFieldNames } from '../../bill-specifics/bill-constants.js';
 
 
 const matchPattern = (string, pattern) => {
