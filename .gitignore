@@ -1,7 +1,7 @@
 */node_modules
 .env
 nodejs/*
-scripts/assets/*
 !scripts/assets/Place JSON template here.txt
 bin/nodejs/node.exe
-*/BillData.JSON
+*/*/assets/*.JSON
+*/assets/*.JSON

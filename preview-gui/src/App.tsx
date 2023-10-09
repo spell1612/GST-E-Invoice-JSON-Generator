@@ -7,7 +7,9 @@ const App = () => {
   const [billData, setBillData] = useState<Invoice[]>([]);
 
   const readJSON = async () => {
-    const jsonData = (await fetch(import.meta.env.VITE_FILE_NAME as string)).json();
+    const jsonData = (
+      await fetch("./src/assets/" + (import.meta.env.VITE_FILE_NAME as string))
+    ).json();
     setBillData(await jsonData);
   };
 
