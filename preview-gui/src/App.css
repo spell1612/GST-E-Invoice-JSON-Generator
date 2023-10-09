@@ -1,0 +1,93 @@
+td {
+  width: auto;
+}
+td input {
+  width: 100px;
+}
+
+.Doc-Details,
+.Buyer-Details,
+.table {
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
+}
+
+.bill,
+.popup {
+  min-width: 850px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 15px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
+}
+
+.bill {
+  background-color: #ffb6b9;
+}
+
+.Doc-Details {
+  background-color: #8fd8d7;
+  font-size: 16px;
+}
+
+.Buyer-Details {
+  background-color: #d6ece7;
+}
+
+.bill .table {
+  background-color: #fff1ea;
+}
+
+.Total-Row {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.329);
+  transition: opacity 500ms;
+  z-index: 1000;
+}
+
+.popup {
+  margin: 80px auto;
+  background: #ffe4d6;
+  border-radius: 15px;
+  width: fit-content;
+  /* width: 60%; */
+  position: relative;
+  /* transition: all 5s ease-in-out; */
+}
+.popup .close {
+  position: sticky;
+  top: 5px;
+  right: 5px;
+}
+.popup .close:hover {
+  color: #d80606;
+}
+
+/* .popup .table {
+  background-color: #f5eced;
+} */
+
+.toolbar {
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  background-color: #ff6969;
+  height: 60px;
+}
+
+.toolbar-icon {
+  color: #fdfdfd;
+}
+
+.toolbar-icon:hover {
+  color: #489b48;
+}
