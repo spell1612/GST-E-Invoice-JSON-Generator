@@ -1,6 +1,9 @@
+import { shippingDetails } from "../utils/constants";
+
 export interface Invoice {
   DocDtls: DocDetails;
   BuyerDtls: BuyerDetails;
+  ShipDtls?: ShippingDetails | null;
   ValDtls: ValueDetails;
   ItemList: Item[];
 }
@@ -36,16 +39,21 @@ export interface BuyerDetails {
   Pin: number;
 }
 
+type ShippingDetails = typeof shippingDetails;
+
 export interface DocDetails {
   No: string;
   Dt: string;
 }
 
-export interface BillProps {
+export interface BillDisplayProps {
   bill: Invoice;
   index: number;
-  closeEditForm?: () => void;
   saveBillData: (arg0: number, arg1: Invoice) => void;
+}
+
+export interface BillProps extends BillDisplayProps {
+  closeEditForm: () => void;
 }
 
 export interface ItemProps {
@@ -58,6 +66,15 @@ export interface ItemProps {
 export interface ItemRowProps {
   key: number;
   item: Item;
+}
+
+export interface ShippingFormProps {
+  billData: Invoice;
+  handleChange: React.ChangeEventHandler<HTMLInputElement>;
+}
+
+export interface ShippingDetailsProps {
+  ShipDtls: ShippingDetails | undefined;
 }
 
 export interface EditFormProps {

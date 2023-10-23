@@ -1,15 +1,38 @@
+#root {
+  background-color: #e2e2e2;
+  display: flex;
+}
+
 td {
   width: auto;
 }
+
 td input {
   width: 100px;
 }
 
-.Doc-Details,
-.Buyer-Details,
-.table {
-  border-radius: 10px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
+label {
+  vertical-align: middle;
+  overflow: auto;
+}
+
+.Doc-Details label,
+.shipping label {
+  display: flex;
+  align-items: center;
+}
+
+input {
+  padding: 5px;
+  line-height: 20px;
+  vertical-align: middle;
+  border: 1px solid #c7c7c7;
+  border-radius: 4px;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .bill,
@@ -18,24 +41,22 @@ td input {
   font-size: 15px;
   font-weight: 600;
   border-radius: 15px;
+  background-color: #ffadb0;
+  border: 1px solid #ac8989;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
 }
 
-.bill {
-  background-color: #ffb6b9;
-}
-
 .Doc-Details {
-  background-color: #8fd8d7;
   font-size: 16px;
 }
 
-.Buyer-Details {
-  background-color: #d6ece7;
-}
-
-.bill .table {
-  background-color: #fff1ea;
+.Buyer-Details,
+.Doc-Details,
+.bill .table,
+.popup .table {
+  background-color: #f9f5e7;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
 }
 
 .Total-Row {
@@ -55,14 +76,32 @@ td input {
 }
 
 .popup {
-  margin: 80px auto;
-  background: #ffe4d6;
+  margin: 50px auto 10px;
   border-radius: 15px;
   width: fit-content;
-  /* width: 60%; */
+  max-width: min-content;
   position: relative;
-  /* transition: all 5s ease-in-out; */
+  max-height: 90%;
+  overflow: auto;
+  border: 10px solid #ffadb0;
 }
+
+.popup::-webkit-scrollbar {
+  width: 5px;
+}
+.popup::-webkit-scrollbar-track {
+  background: #ffdcdd;
+  border-radius: 15px;
+}
+.popup::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 15px;
+}
+.popup::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius: 15px;
+}
+
 .popup .close {
   position: sticky;
   top: 5px;
@@ -72,22 +111,18 @@ td input {
   color: #d80606;
 }
 
-/* .popup .table {
-  background-color: #f5eced;
-} */
-
 .toolbar {
   position: fixed;
   top: 0;
   z-index: 99;
-  background-color: #ff6969;
+  background-color: #ff6d6d;
   height: 60px;
 }
 
-.toolbar-icon {
-  color: #fdfdfd;
+.sub-header {
+  font-size: medium;
+  font-weight: 700;
+  color: #fd5c5c;
 }
 
-.toolbar-icon:hover {
-  color: #489b48;
-}
+

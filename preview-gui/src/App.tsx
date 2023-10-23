@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
-import { Invoice } from "./types/Type";
+import { Invoice } from "./types/type";
 import Bill from "./components/Bill";
 import ToolBar from "./components/ToolBar";
 
@@ -7,10 +7,14 @@ const App = () => {
   const [billData, setBillData] = useState<Invoice[]>([]);
 
   const readJSON = async () => {
-    const jsonData = (
-      await fetch("./src/assets/" + (import.meta.env.VITE_FILE_NAME as string))
-    ).json();
-    setBillData(await jsonData);
+    try {
+      const jsonData = (
+        await fetch("./src/assets/" + (import.meta.env.VITE_FILE_NAME as string))
+      ).json();
+      setBillData(await jsonData);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const saveBillData = (index: number, bill: Invoice) => {
@@ -38,7 +42,7 @@ const App = () => {
   return (
     <Fragment>
       <ToolBar exportData={exportData} />
-      <div className="d-flex flex-col flex-wrap justify-content-center pt-3 m-5">
+      <div className="main d-flex flex-col flex-wrap justify-content-center pt-3 m-5">
         {billData.map((bill: Invoice, index) => (
           <Bill key={index} saveBillData={saveBillData} index={index} bill={bill} />
         ))}
