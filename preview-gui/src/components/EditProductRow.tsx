@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { ItemProps } from "../types/Type";
+import { ItemProps } from "../types/type";
 
 const EditItemRow = ({ index, item, handleProduct }: ItemProps) => {
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
@@ -18,7 +18,7 @@ const EditItemRow = ({ index, item, handleProduct }: ItemProps) => {
       </td>
       <td>
         <input
-          style={{ width: 50 }}
+          style={{ width: 70 }}
           name="HsnCd"
           value={item.HsnCd}
           onChange={handleChange}

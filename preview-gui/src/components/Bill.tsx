@@ -1,9 +1,11 @@
 import { Fragment, useState } from "react";
-import { BillProps, Item } from "../types/Type";
+import { BillDisplayProps, Item } from "../types/type";
 import ItemRow from "./ProductRow";
 import EditForm from "./EditForm";
+import ShippingAddress from "./ShippingAddress";
+import Button from "./Button";
 
-const Bill = ({ saveBillData, index, bill }: BillProps) => {
+const Bill = ({ saveBillData, index, bill }: BillDisplayProps) => {
   const [showEditForm, setShowEditForm] = useState(false);
 
   const handleClick = () => {
@@ -17,8 +19,9 @@ const Bill = ({ saveBillData, index, bill }: BillProps) => {
   return (
     <Fragment>
       <div className="bill m-2">
+        {/* Doc Details */}
         <div className="Doc-Details col mx-3 mt-3 d-flex">
-          <div className="col-7 py-2 d-flex">
+          <div className="col-6 py-2 d-flex">
             <div className="px-4 col-4">Invoice No</div>
             <div className="px-1 col-8">: {bill.DocDtls.No}</div>
           </div>
@@ -27,43 +30,45 @@ const Bill = ({ saveBillData, index, bill }: BillProps) => {
             <div className="px-4 col-9">: {bill.DocDtls.Dt}</div>
           </div>
           <div className="col py-1 d-flex justify-content-center">
-            <span
-              className="material-symbols-outlined"
-              style={{ fontSize: 30 }}
-              onClick={handleClick}
-            >
-              edit
-            </span>
+            <Button onClick={handleClick} className="btn-success" text="Edit" icon="edit" />
           </div>
         </div>
-        <div className="Buyer-Details row mx-3 mt-3">
-          <div className="col-7">
-            <div className="row d-flex my-2">
-              <div className="col-2 px-4">Name</div>
-              <div className="col px-2">: {bill.BuyerDtls.LglNm}</div>
-            </div>
-            <div className="row d-flex my-2">
-              <div className="col-2 px-4">Address</div>
-              <div className="col">
-                <div className="row px-2">: {bill.BuyerDtls.Addr1}</div>
-                <div className="row px-3">
-                  {" "}
-                  {bill.BuyerDtls.Loc} {bill.BuyerDtls.Pin}
+
+        {/* Buyer Details */}
+        <div className="Buyer-Details mx-3 mt-3">
+          <div className="row gx-0">
+            <div className="col-7">
+              <div className="col d-flex my-2">
+                <div className="col-2 px-4">Name</div>
+                <div className="col px-2">: {bill.BuyerDtls.LglNm}</div>
+              </div>
+              <div className="col d-flex my-2">
+                <div className="col-2 px-4">Address</div>
+                <div className="col">
+                  <div className="col px-2">: {bill.BuyerDtls.Addr1}</div>
+                  <div className="col px-3">
+                    {" "}
+                    {bill.BuyerDtls.Loc} {bill.BuyerDtls.Pin}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="col-5">
-            <div className="row d-flex my-2">
-              <div className="col-3 px-4">Phone</div>
-              <div className="col px-2">: {bill.BuyerDtls.Ph}</div>
+            <div className="col-5">
+              <div className="col d-flex my-2">
+                <div className="col-4 px-3">Phone</div>
+                <div className="col px-2">: {bill.BuyerDtls.Ph}</div>
+              </div>
+              <div className="col d-flex my-2">
+                <div className="col-4 px-3">GSTIN</div>
+                <div className="col px-2">: {bill.BuyerDtls.Gstin}</div>
+              </div>
             </div>
-            <div className="row d-flex my-2">
-              <div className="col-3 px-4">GSTIN</div>
-              <div className="col px-2">: {bill.BuyerDtls.Gstin}</div>
-            </div>
           </div>
+
+          {bill.ShipDtls ? <ShippingAddress ShipDtls={bill.ShipDtls} /> : null}
         </div>
+
+        {/* Table */}
         <div className="mt-3 mx-3">
           <table className="table table-borderless">
             <thead>

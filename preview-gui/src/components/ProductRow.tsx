@@ -1,4 +1,4 @@
-import { ItemRowProps } from "../types/Type";
+import { ItemRowProps } from "../types/type";
 
 const ItemRow = ({ item }: ItemRowProps) => {
   return (
