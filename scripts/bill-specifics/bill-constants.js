@@ -2,6 +2,9 @@ export const billItemNames = [
     "G.P. SHEET",
     "C.R.SHEET",
     "H R SHEET",
+    "C R.SHEET",
+    "C.R SHEET",
+    "C R SHEET",
 ];
 
 export const itemJsonFieldNames = [

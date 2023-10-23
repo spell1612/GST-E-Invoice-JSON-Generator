@@ -26,7 +26,7 @@ Update the regexes at `scripts\bill-specifics\bill-regex.js` for your own use.
 #### Run Release
 
 - Grab the latest release
-- Provide the bills to be parsed, as a `.txt` file with whatever file name was specified in the `.env` file.
+- Provide the bills to be parsed, as a `Bills.txt` file on the desktop.
 - Use `Generate JSON.bat` to run
 
 
