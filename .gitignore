@@ -1,8 +1,9 @@
 node_modules
 .env
-nodejs/*
+*/*/nodejs/*
 !scripts/assets/Place JSON template here.txt
 node.exe
-npx.cmd
+vite.cmd
+vite
 */*/assets/*.JSON
 */assets/*.JSON
