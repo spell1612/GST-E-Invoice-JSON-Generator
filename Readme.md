@@ -9,8 +9,9 @@ Update the regexes at `scripts\bill-specifics\bill-regex.js` for your own use.
 
 #### Prerquisites
 - Currently only supports Windows 
-- Provide the bills to be used for generation by copying them over to `Bills.txt` on the desktop.
-- Provide a `node.exe` binary in the `bin\nodejs\` location.
+- Provide the bills to be parsed, as a `.txt` file with whatever file name was specified in the `.env` file.
+- Does not require an installed/global node. Uses everything it needs from the `bin/` diretory
+- Provide the `node_binaries.zip` binaries grabbed from [releases page](https://github.com/spell1612/GST-E-Invoice-JSON-Generator/releases), and place them in the `bin\nodejs\` location.
 - Provide a sample E-Invoice JSON file as a template at `scripts\assets`
 
 #### Build
