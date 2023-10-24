@@ -1,6 +1,7 @@
 ## GST E-Invoice JSON Generator
 
 This is a script written in NodeJs to generate the JSON required for GST E-Invoice download.
+Preview UI implemented in ReactJS.
 
 It uses extremely specific regexes to extract the required information from an unformatted bill.
 
