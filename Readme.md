@@ -16,7 +16,7 @@ Update the regexes at `scripts\bill-specifics\bill-regex.js` for your own use.
 #### Build
 
 - Clone the repository
-- Either use the node v20.x binary provided in the releases page, or use a global node 20.x installation
+- Grab the `node_binaries.zip` from the [releases page](https://github.com/spell1612/GST-E-Invoice-JSON-Generator/releases), extract, and place the contents in `bin/nodejs`
 - `cd` into the `/scripts` directory and run `npm i`
 - Provide a valid GST JSON template with pre filled seller details, and other static information in the `/scripts/assets` directory
 - Provide the appropriate values and file names in `.env`
